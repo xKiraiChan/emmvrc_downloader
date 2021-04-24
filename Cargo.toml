@@ -1,8 +1,16 @@
+cargo-features = ["strip"] # cargo install cargo-strip
+
 [package]
 name = "emmvrc_downloader"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["xKiraiChan <xKiraiChan@gmail.com>"]
 edition = "2018"
+
+[profile.release]
+lto = true
+strip = "symbols"
+panic = "abort"
+# codegen-units = 1 # this *may* result in better builds but hasn't for me
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
